@@ -1,15 +1,15 @@
 import java.util.Scanner;
-
+import java.lang.Exception;
 class UsernameException extends Exception {
 
-    UsernameException(String msg) {
+    public UsernameException(String msg) {
         System.out.print(msg);
     }
 }
 
 class PasswordException extends Exception {
 
-    PasswordException(String msg) {
+    public PasswordException(String msg) {
         System.out.print(msg);
     }
 }
@@ -27,17 +27,17 @@ public class namepass {
         int len = username.length();
         try {
             if(len < 8)
-                throw new UsernameException("Username must be greater than 8 characters");
-            else if(!password.equals("admin"))
-                throw new PasswordException("Incorrect password");
+                throw new UsernameException("Username must be greater than 8 characters\n");
+            else if(!password.equals("root"))
+                throw new PasswordException("Incorrect password!\n");
             else
                 System.out.println("Login Successful");
         }
         catch (UsernameException u) {
-            u.printStackTrace();
+            System.out.println(u);
         }
         catch (PasswordException p) {
-            p.printStackTrace();
+            System.out.println(p);
         }
     }
 }

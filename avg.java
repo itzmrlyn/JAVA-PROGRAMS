@@ -1,7 +1,8 @@
 import java.util.Scanner;
+import java.lang.Exception;
 class MyException extends Exception
 {
-     MyException(String str)
+    public MyException(String str)
     {
         System.out.println(str);
     }
@@ -9,16 +10,15 @@ class MyException extends Exception
 public class avg {
     public static void main(String[] args){
         try {
-            int i, n, sum=0;
-            float average=0;
+            int i, n;
+            double sum=0,average;
             int elem[]=new int[40];
             Scanner reader = new Scanner(System.in);
             System.out.print("Enter number of elements: ");
             n = reader.nextInt();
-            System.out.println("Enter elements: ");
+            System.out.println("Enter the elements: ");
             for (i = 0; i < n; i++) {
                 elem[i] = reader.nextInt();
-            
             }
             for(i=0;i<n;i++) {
                 if (elem[i] >= 0) {
@@ -27,12 +27,11 @@ public class avg {
                 else
                     throw new MyException("Number is negative");
             }
-                
                 average = sum/n;
-                System.out.print("\nAverage is " +average);
+                System.out.print("Average is :" +average);
         }
         catch (MyException m) {
-            // System.out.println(m);
+            
         }
     }
 }

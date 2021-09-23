@@ -1,43 +1,33 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
- class sort {
-     public static void main(String[] args)
-     {
-	 int n,i,j;
-	 String temp;
-	 Scanner reader = new Scanner(System.in);
+public class sort {
+    public static void main(String args[]) {
+        int n,j;
+        String temp;
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter the size of array: ");
+        n = read.nextInt();
+        System.out.print("Enter the values: ");
 
-	 System.out.print("Enter the size of the array : ");
-	 n = reader.nextInt();
-
-	 System.out.println("\nEnter Values to be inserted : \n");
-
-	 String[] values = new String[n];
-
-	 for(i=0;i<n;i++)
-	     {
-		 values[i]=reader.next();
-	     }
-
-	 for(i=0;i<n;i++)
-	     {
-		 for(j=0;j<n;j++)
-		     {
-			 if(values[i].compareTo(values[j])>0)
-			     {
-				 temp=values[i];
-				 values[i]=values[j];
-				 values[j]=temp;
-			     }
-		     }
-	     }
-
-	 System.out.println("The Values in the sorted order ");
-
-	 for(i=n-1;i>=0;i--)
-	     {
-		 System.out.println(values[i]);
-	     }
-	 
-     }
+        String[] array = new String[n];
+        for(int i = 0;i < n;i++)
+        {
+            array[i] = read.next();
+        }
+        for (int i = 0; i < n; i++) {
+            for ( j = i + 1; j < n; j++) {
+                if (array[i].compareTo(array[j]) > 0) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        System.out.print("Strings in Sorted Order:");
+        for ( int i = 0; i <n ; i++)
+        {
+            System.out.print(array[i] + ", ");
+        }
+    }
 }
